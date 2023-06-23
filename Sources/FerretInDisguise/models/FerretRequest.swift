@@ -1,4 +1,4 @@
-struct FerretRequest: Codable {
+public struct FerretRequest: Codable {
     let bundleId: String
     let osVersion: String
     let phoneModel: String

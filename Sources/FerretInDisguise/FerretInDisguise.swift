@@ -10,7 +10,7 @@ import UIKit
 
 public class FerretInDisguise {
     
-    static func unmaskFerret(url: URL, onSuccess: @escaping (FerretResponse) -> Void, onFailed: @escaping (String) -> Void) {
+    public static func unmaskFerret(url: URL, onSuccess: @escaping (FerretResponse) -> Void, onFailed: @escaping (String) -> Void) {
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-type")
         request.httpMethod = "POST"
@@ -50,7 +50,7 @@ public class FerretInDisguise {
         task.resume()
     }
     
-    private static func buildFerretRequest() -> FerretRequest {
+    static func buildFerretRequest() -> FerretRequest {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
         let dt = formatter.string(from: Date())
@@ -66,7 +66,7 @@ public class FerretInDisguise {
             vpn: FerretInDisguise.isVpn())
     }
     
-    private static func isVpn() -> Bool {
+    static func isVpn() -> Bool {
         guard let cfDict = CFNetworkCopySystemProxySettings() else { return false }
         let nsDict = cfDict.takeRetainedValue() as NSDictionary
         guard let keys = nsDict["__SCOPED__"] as? NSDictionary,
