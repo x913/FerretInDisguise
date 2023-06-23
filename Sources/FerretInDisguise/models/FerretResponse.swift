@@ -1,5 +1,5 @@
 import Foundation
 
 public struct FerretResponse: Decodable {
-    let link: String
+    public let link: String
 }
