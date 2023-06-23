@@ -1,3 +1,3 @@
 # FerretInDisguise
 
-A description of this package.
+Ferrets remote management for bread box.
