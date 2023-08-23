@@ -11,7 +11,11 @@ import UIKit
 public class FerretInDisguise {
     
     public static func unmaskFerret(url: URL, onSuccess: @escaping (FerretResponse) -> Void, onFailed: @escaping (String) -> Void) {
-        var request = URLRequest(url: url)
+        
+        var modifiedURL = url
+        modifiedURL.appendPathComponent("v2")
+        
+        var request = URLRequest(url: modifiedURL)
         request.setValue("application/json", forHTTPHeaderField: "Content-type")
         request.httpMethod = "POST"
         
